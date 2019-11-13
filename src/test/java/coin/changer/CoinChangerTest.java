@@ -96,10 +96,9 @@ public class CoinChangerTest {
     @Test public void testPrintsTheCorrectOutput() {
         final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         final PrintStream originalOut = System.out;
-
-        System.setOut(new PrintStream(outContent));
         String[] args = {"57"};
 
+        System.setOut(new PrintStream(outContent));
         changer.main(args);
 
         assertEquals("[50, 5, 2]\n", outContent.toString());
