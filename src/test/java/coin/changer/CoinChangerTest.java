@@ -23,9 +23,15 @@ public class CoinChangerTest {
         assertEquals("should return a single 2p for 2", expectedOutput, changer.change(2));
     }
 
-    @Test public void testReturn2pAndAPennyForThree() {
+    @Test public void testReturns2pAndAPennyForThree() {
         CoinChanger changer = new CoinChanger();
         List<Integer> expectedOutput = new ArrayList<>(List.of(2, 1));
         assertEquals("should return 2p and a penny for 3", expectedOutput, changer.change(3));
+    }
+
+    @Test public void testReturnsTwo2psForFour() {
+        CoinChanger changer = new CoinChanger();
+        List<Integer> expectedOutput = new ArrayList<>(List.of(2, 2));
+        assertEquals("should return two 2ps for four", expectedOutput, changer.change(4));
     }
 }
