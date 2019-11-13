@@ -65,4 +65,9 @@ public class CoinChangerTest {
         List<Integer> expectedOutput = new ArrayList<>(List.of(10));
         assertEquals("should return 10p for ten", expectedOutput, changer.change(10));
     }
+
+    @Test public void testReturnsASingle20pForTwenty() {
+        List<Integer> expectedOutput = new ArrayList<>(List.of(20));
+        assertEquals("should return 20p for twenty", expectedOutput, changer.change(20));
+    }
 }
