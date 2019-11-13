@@ -13,13 +13,19 @@ import static org.junit.Assert.*;
 public class CoinChangerTest {
     @Test public void testReturnsASinglePennyForOne() {
         CoinChanger changer = new CoinChanger();
-        List<Integer> expectedOutput = new ArrayList<Integer>(List.of(1));
+        List<Integer> expectedOutput = new ArrayList<>(List.of(1));
         assertEquals("should return a single penny for one", expectedOutput, changer.change(1));
     }
 
-    @Test public void testREturnsASingle2pForTwo() {
+    @Test public void testReturnsASingle2pForTwo() {
         CoinChanger changer = new CoinChanger();
-        List<Integer> expectedOutput = new ArrayList<Integer>(List.of(2));
+        List<Integer> expectedOutput = new ArrayList<>(List.of(2));
         assertEquals("should return a single 2p for 2", expectedOutput, changer.change(2));
+    }
+
+    @Test public void testReturn2pAndAPennyForThree() {
+        CoinChanger changer = new CoinChanger();
+        List<Integer> expectedOutput = new ArrayList<>(List.of(2, 1));
+        assertEquals("should return 2p and a penny for 3", expectedOutput, changer.change(3));
     }
 }
