@@ -3,6 +3,8 @@ package coin.changer;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +38,7 @@ public class CoinChangerTest {
         assertEquals("should return two 2ps for four", expectedOutput, changer.change(4));
     }
 
-    @Test public void testReturnsASingle5pForTen() {
+    @Test public void testReturnsASingle5pForFive() {
         List<Integer> expectedOutput = new ArrayList<>(List.of(5));
         assertEquals("should return a single 5p for five", expectedOutput, changer.change(5));
     }
@@ -89,5 +91,19 @@ public class CoinChangerTest {
     @Test public void testWorksCorrectlyForComplexAmounts() {
         List<Integer> expectedOutput = new ArrayList<>(List.of(200, 100, 50, 20, 10, 5, 2, 1));
         assertEquals("should correctly calculate complex amounts", expectedOutput, changer.change(388));
+    }
+
+    @Test public void testPrintsTheCorrectOutput() {
+        final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+        final PrintStream originalOut = System.out;
+
+        System.setOut(new PrintStream(outContent));
+        String[] args = {"57"};
+
+        changer.main(args);
+
+        assertEquals("[50, 5, 2]\n", outContent.toString());
+
+        System.setOut(originalOut);
     }
 }
