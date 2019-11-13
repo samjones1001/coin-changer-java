@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class CoinChangerTest {
     private CoinChanger changer;
@@ -54,5 +54,15 @@ public class CoinChangerTest {
     @Test public void testReturns5p2pAndAPennyForEight() {
         List<Integer> expectedOutput = new ArrayList<>(List.of(5, 2, 1));
         assertEquals("should return 5p 2p and a penny for eight", expectedOutput, changer.change(8));
+    }
+
+    @Test public void testReturns5p2p2pForNine() {
+        List<Integer> expectedOutput = new ArrayList<>(List.of(5, 2, 2));
+        assertEquals("should return 5p 2p 2p for nine", expectedOutput, changer.change(9));
+    }
+
+    @Test public void testReturnsASingle10pForTen() {
+        List<Integer> expectedOutput = new ArrayList<>(List.of(10));
+        assertEquals("should return 10p for ten", expectedOutput, changer.change(10));
     }
 }
