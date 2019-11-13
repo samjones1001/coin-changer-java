@@ -82,7 +82,12 @@ public class CoinChangerTest {
     }
 
     @Test public void testReturnsASingle£2ForTwoHundred() {
-        List<Integer> expectedOutput = new ArrayList<>(List.of(100));
+        List<Integer> expectedOutput = new ArrayList<>(List.of(200));
         assertEquals("should return £2 for two hundred", expectedOutput, changer.change(200));
+    }
+
+    @Test public void testWorksCorrectlyForComplexAmounts() {
+        List<Integer> expectedOutput = new ArrayList<>(List.of(200, 100, 50, 20, 10, 5, 2, 1));
+        assertEquals("should correctly calculate complex amounts", expectedOutput, changer.change(388));
     }
 }
