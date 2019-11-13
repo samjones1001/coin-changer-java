@@ -4,12 +4,22 @@
 package coin.changer;
 
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class CoinChangerTest {
     @Test public void testReturnsASinglePennyForOne() {
         CoinChanger changer = new CoinChanger();
-        Integer[] expectedOutput = {1};
-        assertArrayEquals("should return a single penny for one", expectedOutput, changer.change(1));
+        List<Integer> expectedOutput = new ArrayList<Integer>(List.of(1));
+        assertEquals("should return a single penny for one", expectedOutput, changer.change(1));
+    }
+
+    @Test public void testREturnsASingle2pForTwo() {
+        CoinChanger changer = new CoinChanger();
+        List<Integer> expectedOutput = new ArrayList<Integer>(List.of(2));
+        assertEquals("should return a single 2p for 2", expectedOutput, changer.change(2));
     }
 }
