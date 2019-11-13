@@ -45,4 +45,14 @@ public class CoinChangerTest {
         List<Integer> expectedOutput = new ArrayList<>(List.of(5, 1));
         assertEquals("should return 5p and a penny for six", expectedOutput, changer.change(6));
     }
+
+    @Test public void testReturns5pAnd2pForSeven() {
+        List<Integer> expectedOutput = new ArrayList<>(List.of(5, 2));
+        assertEquals("should return 5p and 2p for seven", expectedOutput, changer.change(7));
+    }
+
+    @Test public void testReturns5p2pAndAPennyForEight() {
+        List<Integer> expectedOutput = new ArrayList<>(List.of(5, 2, 1));
+        assertEquals("should return 5p 2p and a penny for eight", expectedOutput, changer.change(8));
+    }
 }
