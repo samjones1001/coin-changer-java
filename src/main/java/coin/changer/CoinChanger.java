@@ -5,7 +5,7 @@ import java.util.List;
 
 public class CoinChanger {
     public List<Integer> change(Integer amount) {
-        Integer[] denominations = {20, 10, 5, 2, 1};
+        Integer[] denominations = {200, 100, 50, 20, 10, 5, 2, 1};
         List<Integer> coins = new ArrayList<Integer>();
 
         for (Integer denomination: denominations) {
